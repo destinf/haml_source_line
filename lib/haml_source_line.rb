@@ -7,8 +7,14 @@ module Haml
 
     def compile(node)
       if node.type == :tag
-        file, line = @options[:filename], node.line
-        node.value.attributes.merge!(:data => { :source_line => "#{file}:#{line}" })
+        file = @options[:filename]
+
+        if defined?(::Rails)
+          file.gsub!(::Rails.root.to_s, '')
+          file.gsub!(/^\//, '')
+        end
+
+        node.value.attributes.merge!(data: { source_line: "#{file}:#{node.line}" })
       end
       orig_compile(node)
     end

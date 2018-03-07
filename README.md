@@ -1,28 +1,40 @@
 # HamlSourceLine
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/haml_source_line`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem adds the HAML source line into the resulting HTML. 
 
-TODO: Delete this and the text above, and describe your gem
+With the following HAML file:
+```haml
+# app/views/user/login.html.haml
+%h2 Login Page
+
+%p
+  Please login to continue.
+```
+
+Will result in the following HTML:
+```html
+<h2 data-source-line="app/views/user/login.html.haml:1">
+  Login Page
+</h2>
+
+<p data-source-line="app/views/user/login.html.haml:3">
+  Please login to continue.
+</p>
+```
+
+Note the presence of the `data-source-line` attribute in the resulting tags that point back to the exact line in the haml file.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'haml_source_line'
+gem 'haml_source_line', github: 'financeit/haml_source_line'
 ```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install haml_source_line
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
