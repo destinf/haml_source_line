@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "haml_source_line"
-  spec.version       = '0.1.0'
+  spec.version       = '0.1.1'
   spec.authors       = ["Reginald Tan", "Adnan Ali"]
   spec.email         = ["redge.tan@gmail.com", "adnan.ali@gmail.com"]
 
@@ -31,5 +31,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "haml"
   spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "rake", "~> 10.0"
 end
